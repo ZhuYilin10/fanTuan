@@ -1,7 +1,8 @@
-package com.android.zhuyilin.fantuan
+package com.android.zhuyilin.fantuan.ui
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import com.android.zhuyilin.fantuan.R
 
 class MainActivity : AppCompatActivity() {
 
