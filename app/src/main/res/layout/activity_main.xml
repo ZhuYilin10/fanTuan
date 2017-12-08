@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <data>
-        <variable name="subject" type="com.android.zhuyilin.fantuan.model.Subject" />
-    </data>
-
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{subject.title}"/>
+        <com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager
+            android:id="@+id/main_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:icvp_interpolator="@android:anim/accelerate_decelerate_interpolator"
+            app:icvp_scroll_duration="250"
+            app:icvp_min_page_scale_offset="5dp"
+            app:icvp_max_page_scale="0.85"
+            app:icvp_min_page_scale="0.55"
+            app:icvp_medium_scaled="false"/>
 
     </LinearLayout>
 
