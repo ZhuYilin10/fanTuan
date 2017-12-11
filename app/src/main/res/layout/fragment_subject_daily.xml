@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     app:cardElevation="5dp"
-    app:cardCornerRadius="5dp"
+    app:cardCornerRadius="6dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
@@ -14,13 +14,16 @@
         android:orientation="vertical">
 
         <TextView
+            android:textSize="22sp"
+            android:layout_gravity="right"
+            android:layout_margin="10dp"
             android:id="@+id/week_of_day_text"
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/daily_recycle"
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

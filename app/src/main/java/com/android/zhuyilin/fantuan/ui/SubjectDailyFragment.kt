@@ -10,7 +10,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.android.zhuyilin.fantuan.R
 import com.android.zhuyilin.fantuan.model.Subject
+import com.android.zhuyilin.fantuan.ui.MainActivity.Companion.dayOfWeek
 import org.joda.time.DateTime
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class SubjectDailyFragment: Fragment() {
     var subjects: List<Subject> = ArrayList()
@@ -30,9 +34,18 @@ class SubjectDailyFragment: Fragment() {
             val dayOfWeek1 = airtimeBeginAt.dayOfWeek
             dayOfWeek == dayOfWeek1
         }
-        dayOfWeekTextView.text = dayOfWeek.toString()
-        recyclerView.adapter = SubjectDailyRecycleAdapter(filter)
+        dayOfWeekTextView.text = dayOfWeek(dayOfWeek)
+        Collections.sort(filter, SortByAirTime())
+        recyclerView.adapter = SubjectDailyRecycleAdapter(filter, activity)
         recyclerView.layoutManager = LinearLayoutManager(context)
+    }
+
+    inner class SortByAirTime : Comparator<Subject> {
+        override fun compare(w1: Subject, w2: Subject): Int {
+            val v1 = SimpleDateFormat("HH:mm", Locale.CHINA).format(w1.airtimeBeginAt)
+            val v2 = SimpleDateFormat("HH:mm", Locale.CHINA).format(w2.airtimeBeginAt)
+            return v1.compareTo(v2)
+        }
     }
 
     companion object {
