@@ -5,7 +5,6 @@ import java.io.Serializable
 import java.util.*
 import kotlin.collections.ArrayList
 
-
 class Subject: Serializable {
     lateinit var title: String
     @SerializedName("airtime_begin_at")lateinit var airtimeBeginAt: Date
