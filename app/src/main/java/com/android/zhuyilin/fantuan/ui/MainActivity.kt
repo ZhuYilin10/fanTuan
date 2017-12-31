@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.RelativeLayout
 import com.android.zhuyilin.fantuan.R
 import com.android.zhuyilin.fantuan.databinding.ActivityMainBinding
 import com.android.zhuyilin.fantuan.model.Subject
