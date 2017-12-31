@@ -19,6 +19,10 @@ class SubjectDailyRecycleAdapter(val subjects: List<Subject>, val context: Conte
         holder.titleView.text = subject.title
         Picasso.with(context).load(subject.posterUrl).into(holder.postImage)
         holder.airTime.text = SimpleDateFormat("HH:mm", CHINA).format(subject.airtimeBeginAt)
+
+        holder.itemView.setOnClickListener {
+
+        }
     }
 
     override fun getItemCount(): Int {

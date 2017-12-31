@@ -12,12 +12,12 @@ import com.android.zhuyilin.fantuan.R
 import com.android.zhuyilin.fantuan.model.Subject
 import com.android.zhuyilin.fantuan.ui.MainActivity.Companion.dayOfWeek
 import org.joda.time.DateTime
+import org.litepal.crud.DataSupport
 import java.text.SimpleDateFormat
 import java.util.*
 
 
 class SubjectDailyFragment: Fragment() {
-    var subjects: List<Subject> = ArrayList()
     var dayOfWeek = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle?): View {
@@ -28,6 +28,7 @@ class SubjectDailyFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView: RecyclerView = activity.findViewById(R.id.daily_recycle)
         val dayOfWeekTextView: TextView = activity.findViewById(R.id.week_of_day_text)
+        val subjects = DataSupport.findAll(Subject::class.java)
 
         val filter = subjects.filter {
             val airtimeBeginAt = DateTime(it.airtimeBeginAt)
@@ -49,9 +50,8 @@ class SubjectDailyFragment: Fragment() {
     }
 
     companion object {
-        fun newInstance(subjects: List<Subject>, dayOfWeek: Int): Fragment {
+        fun newInstance(dayOfWeek: Int): Fragment {
             val subjectDailyFragment = SubjectDailyFragment()
-            subjectDailyFragment.subjects = subjects
             subjectDailyFragment.dayOfWeek = dayOfWeek
             return subjectDailyFragment
         }
